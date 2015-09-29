@@ -32,6 +32,31 @@ gem 'errbit_github_plugin'
 
 gem 'dotenv-rails'
 
+# Queue adapters!
+# -----------------
+if queue_adapter = ENV['QUEUE_ADAPTER']
+  case queue_adapter
+  when 'backburner'
+    gem 'backburner', '~> 1.1.0'
+  when 'delayed_job'
+    gem 'delayed_job', '~> 4.1.1'
+  when 'qu'
+    gem 'qu', '~> 0.2.0'
+  when 'que'
+    gem 'que', '~> 0.11.2'
+  when 'queue_classic'
+    gem 'queue_classic', '~> 3.1.0'
+  when 'resque'
+    gem 'resque', '~> 1.0'
+  when 'sidekiq'
+    gem 'sidekiq', '~> 3.5.0'
+  when 'sneakers'
+    gem 'sneakers', '~> 2.2.0'
+  when 'sucker_punch'
+    gem 'sucker_punch', '~> 1.5.1'
+  end
+end
+
 # Notification services
 # ---------------------------------------
 gem 'campy'

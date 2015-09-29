@@ -21,6 +21,9 @@ module Errbit
     config.before_initialize do
       config.secret_key_base = Errbit::Config.secret_key_base
       config.serve_static_files = Errbit::Config.serve_static_assets
+
+      # Set proper queue adapter or :inline will be used (perform job immediately)
+      config.active_job.queue_adapter = (Errbit::Config.queue_adapter || :inline)
     end
 
     initializer 'errbit.mongoid', before: 'mongoid.load-config' do

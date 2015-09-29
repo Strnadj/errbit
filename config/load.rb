@@ -28,6 +28,9 @@ Errbit::Config = Configurator.run({
   secret_key_base:           ['SECRET_KEY_BASE'],
   mongo_url:                 ['MONGOLAB_URI', 'MONGOHQ_URL', 'MONGODB_URL', 'MONGO_URL'],
 
+  # ActiveJob queue_adapter
+  queue_adapter:             ['QUEUE_ADAPTER'],
+
   # github
   github_url:                ['GITHUB_URL', ->(values) {
     values[:github_url].gsub(/\/*\z/, '')
